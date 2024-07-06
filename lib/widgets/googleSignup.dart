@@ -12,8 +12,7 @@ class GoogleSignUpButton extends StatelessWidget {
                   Navigator.of(context).pushNamed('/homescreen');
                 },
       style: ElevatedButton.styleFrom(
-        primary: Colors.white, // Button background color
-        onPrimary: Colors.black, // Text color
+        foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
           side: BorderSide(
