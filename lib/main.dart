@@ -6,6 +6,7 @@ import 'package:expense_tracker/screens/sign_in.dart';
 import 'package:expense_tracker/screens/forgot_password.dart';
 import 'package:expense_tracker/widgets/nav_bar.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
+import 'package:expense_tracker/screens/notification.dart';
 
 //Test
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/navbar' :(context) => NavBarRoots(),
         '/homescreen' :(context) => HomeScreen(),
         '/transactions':(context) => TransactionsPage(),
+        '/notifications':(context) => NotificationsPage()
       },
     initialRoute: '/splash',
       theme: ThemeData(

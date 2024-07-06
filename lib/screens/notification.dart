@@ -69,3 +69,13 @@ class NotificationTile extends StatelessWidget {
     );
   }
 }
+
+
+void main() {
+  runApp(
+     MaterialApp(
+      home: NotificationsPage(),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
+}
