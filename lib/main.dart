@@ -9,6 +9,8 @@ import 'package:expense_tracker/widgets/nav_bar.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
 import 'package:expense_tracker/screens/notification.dart';
 import 'package:expense_tracker/screens/stats.dart';
+import 'package:expense_tracker/screens/settings.dart';
+
 
 //Test
 void main() {
@@ -33,7 +35,8 @@ class MyApp extends StatelessWidget {
         '/transactions':(context) => TransactionsPage(),
         '/notifications':(context) => NotificationsPage(),
         '/stats':(context) => Stats(),
-        '/profile': (context) => UserProfile()
+        '/profile': (context) => UserProfile(),
+        '/settings': (context) => SettingsPage()
       },
       initialRoute: '/splash',
       theme: ThemeData(
