@@ -8,6 +8,7 @@ import 'package:expense_tracker/screens/forgot_password.dart';
 import 'package:expense_tracker/widgets/nav_bar.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
 
+//Test
 void main() {
   runApp(const MyApp());
 }
@@ -28,7 +29,6 @@ class MyApp extends StatelessWidget {
         '/navbar': (context) => NavBarRoots(),
         '/homescreen': (context) => HomeScreen(),
         '/transactions': (context) => TransactionsPage(),
-        '/profile': (context) => UserProfile()
       },
       initialRoute: '/splash',
       theme: ThemeData(
@@ -67,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            const Text(
+              'You have pushed the button this many times:',
+            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
