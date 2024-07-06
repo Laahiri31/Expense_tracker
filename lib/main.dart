@@ -10,6 +10,8 @@ import 'package:expense_tracker/widgets/nav_bar.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
 import 'package:expense_tracker/screens/notification.dart';
 import 'package:expense_tracker/screens/settings.dart';
+import 'package:expense_tracker/screens/view_report.dart';
+import 'package:expense_tracker/screens/add_expense.dart';
 
 
 //Test
@@ -36,7 +38,12 @@ class MyApp extends StatelessWidget {
         '/notifications':(context) => NotificationsPage(),
         '/profile': (context) => UserProfile(),
         '/settings': (context) => SettingsPage(),
+<<<<<<< Updated upstream
         '/stats': (context) => StatsPage()
+=======
+        '/cashbook':(context) => PettyCashBook(),
+        '/expense':(context) => ExpenseEntryScreen(),
+>>>>>>> Stashed changes
       },
       initialRoute: '/splash',
       theme: ThemeData(

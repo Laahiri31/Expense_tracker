@@ -159,35 +159,35 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 16.0),
             buildRecentTransactionItem(
               "Entertainment",
-              Icons.shopping_cart,
+              Icons.wifi,
               "Internet Bill",
               "-\₹1300",
               context,
             ),
             buildRecentTransactionItem(
               "Receipt 101",
-              Icons.attach_money,
+              Icons.real_estate_agent_outlined,
               "tenants rent",
               "+\₹5000",
               context,
             ),
             buildRecentTransactionItem(
               "Receipt 102",
-              Icons.attach_money,
+              Icons.real_estate_agent_outlined,
               "tenants rent",
               "+\₹5000",
               context,
             ),
             buildRecentTransactionItem(
               "Communication",
-              Icons.attach_money,
+              Icons.phone_enabled_outlined,
               "Idea Bill",
               "-\₹350",
               context,
             ),
             buildRecentTransactionItem(
               "Petrol",
-              Icons.subscriptions_rounded,
+              Icons.local_gas_station_sharp,
               "Car Fuel",
               "-\₹1200",
               context,
@@ -236,7 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               icon: Icon(Icons.add_circle, size: 48.0), // Larger icon
               onPressed: () {
-                // Handle add transaction action
+                Navigator.of(context).pushNamed('/expense');
               },
             ),
             IconButton(

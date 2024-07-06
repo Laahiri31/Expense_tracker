@@ -56,12 +56,17 @@ class TransactionsPage extends StatelessWidget {
             SizedBox(height: 16.0),
 
             // Download Financial Report Button
-            Container(
-              color: Colors.deepPurple, // Custom color for download bar
-              padding: EdgeInsets.symmetric(vertical: 12.0),
+            ElevatedButton(
+              onPressed: () {
+                  Navigator.of(context).pushNamed('/cashbook');
+            },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple,
+                padding: EdgeInsets.symmetric(vertical: 12.0),
+              ),
               child: Center(
                 child: Text(
-                  'Download Financial Report',
+                  'View Financial Report',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
