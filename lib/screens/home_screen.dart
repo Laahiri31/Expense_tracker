@@ -41,7 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: Icon(Icons.notifications),
             onPressed: () {
-              // Handle notifications action
                   Navigator.of(context).pushNamed('/notifications');
             },
           ),
