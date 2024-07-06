@@ -1,22 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedMonthIndex = DateTime.now().month; // Default to current month
+
+  // Example data for line chart (replace with actual data)
+  List<FlSpot> _lineChartData = [
+    FlSpot(0, 100),
+    FlSpot(1, 150),
+    FlSpot(2, 75),
+    FlSpot(3, 200),
+    FlSpot(4, 120),
+    FlSpot(5, 180),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Medicore"),
+        title: Row(
+          children: [
+            Image.asset(
+              'images/money_logo.png',
+              height: 30, // Adjust height as needed
+            ),
+          ],
+        ),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.settings),
             onPressed: () {
-              // Add your cart functionality here
+              // Handle settings action
             },
           ),
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: Icon(Icons.notifications),
             onPressed: () {
-              Navigator.of(context).pushNamed('/splash');
+              // Handle notifications action
             },
           ),
         ],
@@ -26,155 +51,281 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "Place your order\nSelect pharmacy\nReceive it",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+            SizedBox(height: 16.0),
+            // Month Selector
+            Container(
+              height: 50.0,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 12,
+                itemBuilder: (BuildContext context, int index) {
+                  String monthName = _getMonthName(index + 1); // Adjust index to match your month logic
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedMonthIndex = index + 1;
+                      });
+                      // Call method to update line chart based on selected month
+                      _updateLineChart();
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: _selectedMonthIndex == index + 1
+                            ? Theme.of(context).primaryColor.withOpacity(0.3)
+                            : Colors.transparent,
+                      ),
+                      child: Text(
+                        monthName,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             SizedBox(height: 16.0),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Search...",
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25.0),
+            // Financial Report Line Chart
+            Container(
+              height: 300.0,
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                border: Border.all(color: Colors.grey[300]!),
+              ),
+              child: LineChart(
+                LineChartData(
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: _lineChartData,
+                      isCurved: true,
+                      colors: [Theme.of(context).primaryColor],
+                      barWidth: 4,
+                      isStrokeCapRound: true,
+                      belowBarData: BarAreaData(show: false),
+                    ),
+                  ],
+                  minY: 0,
+                  titlesData: FlTitlesData(
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTitles: (value) {
+                        // Replace with actual labels as needed
+                        switch (value.toInt()) {
+                          case 0:
+                            return 'Week 1';
+                          case 1:
+                            return 'Week 2';
+                          case 2:
+                            return 'Week 3';
+                          case 3:
+                            return 'Week 4';
+                          case 4:
+                            return 'Week 5';
+                          default:
+                            return '';
+                        }
+                      },
+                    ),
+                    leftTitles: SideTitles(showTitles: true),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: Border.all(color: Colors.grey[300]!, width: 1),
+                  ),
                 ),
               ),
             ),
             SizedBox(height: 16.0),
-            // Categories Text
+            // Recent Transactions
             Text(
-              "Categories",
+              "Recent Transactions",
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 16.0),
-            // Categories
-            GridView.count(
-              crossAxisCount: 2,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-                buildClickableCategoryBox(
-                  "Mom & Baby",
-                  Icons.family_restroom,
-                  Color(0xFF2879FF),
-                  '/mom_and_baby',
-                  context,
+            buildRecentTransactionItem(
+              "Groceries",
+              Icons.shopping_cart,
+              "Buying weekly groceries",
+              "-\₹500",
+              context,
+            ),
+            buildRecentTransactionItem(
+              "Salary",
+              Icons.attach_money,
+              "Monthly salary",
+              "+\₹200000",
+              context,
+            ),
+            buildRecentTransactionItem(
+              "Entetainment",
+              Icons.subscriptions_rounded,
+              "Netflix Subscription",
+              "-\₹649",
+              context,
+            ),
+            // Add more recent transactions as needed
+            SizedBox(height: 16.0),
+            // See All Button
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/transactions');
+              },
+              child: Text(
+                "See All",
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 16.0,
                 ),
-                buildClickableCategoryBox(
-                  "Fighting the infection",
-                  Icons.healing,
-                  Color(0xFF3CB5B7),
-                  '/fighting_infection',
-                  context,
-                ),
-                buildClickableCategoryBox(
-                  "Diabetes",
-                  Icons.favorite,
-                  Color(0xFFF6529F),
-                  '/diabetes',
-                  context,
-                ),
-                buildClickableCategoryBox(
-                  "Antibiotics",
-                  Icons.medical_services,
-                  Color(0xFFFE8B8A),
-                  '/antibiotics',
-                  context,
-                ),
-                buildClickableCategoryBox(
-                  "Drugs",
-                  Icons.local_hospital,
-                  Color(0xFFFF9253),
-                  '/drugs',
-                  context,
-                ),
-                buildClickableCategoryBox(
-                  "Women",
-                  Icons.female_outlined,
-                  Color(0xFF7879F1),
-                  '/women',
-                  context,
-                ),
-                buildClickableCategoryBox(
-                  "Cosmetic",
-                  Icons.face,
-                  Color(0xFF2879FF),
-                  '/cosmetic',
-                  context,
-                ),
-                buildClickableCategoryBox(
-                  "Men",
-                  Icons.male_outlined,
-                  Color(0xFFFEC033),
-                  '/men',
-                  context,
-                ),
-              ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.payments_rounded),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.add_circle, size: 48.0), // Larger icon
+              onPressed: () {
+                // Handle add transaction action
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.insert_chart),
+              onPressed: () {
+                Navigator.pushNamed(context, '/report');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
             ),
           ],
         ),
       ),
     );
   }
- int _calculateCrossAxisCount(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    return (screenWidth / 150).floor();
-  }
-  Widget buildClickableCategoryBox(
-    String title,
+
+  Widget buildRecentTransactionItem(
+    String name,
     IconData icon,
-    Color color,
-    String route,
+    String reason,
+    String amount,
     BuildContext context,
   ) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, route);
-      },
-      child: Card(
-        elevation: 2.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Container(
-          width: 120,
-          height: 100,
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 8.0),
+      padding: EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.0),
+        border: Border.all(color: Colors.grey[300]!),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.blue),
+          SizedBox(width: 12.0),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(icon, size: 40.0, color: Colors.white),
-              SizedBox(height: 10.0),
               Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
+                name,
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
+              Text(reason),
             ],
           ),
-        ),
+          Spacer(),
+          Text(
+            amount,
+            style: TextStyle(
+              color: amount.startsWith('-') ? Colors.red : Colors.green,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  void main() {
-    runApp(
-      MaterialApp(
-        home: HomeScreen(),
-        // Define routes for each category page
-        routes: {
-        },
-      ),
-    );
+  String _getMonthName(int monthIndex) {
+    switch (monthIndex) {
+      case 1:
+        return 'January';
+      case 2:
+        return 'February';
+      case 3:
+        return 'March';
+      case 4:
+        return 'April';
+      case 5:
+        return 'May';
+      case 6:
+        return 'June';
+      case 7:
+        return 'July';
+      case 8:
+        return 'August';
+      case 9:
+        return 'September';
+      case 10:
+        return 'October';
+      case 11:
+        return 'November';
+      case 12:
+        return 'December';
+      default:
+        return '';
+    }
   }
+
+  void _updateLineChart() {
+    // Replace with logic to update line chart based on _selectedMonthIndex
+    // For example, fetch data for selected month and update _lineChartData
+    setState(() {
+      // Example data update, replace with actual data fetch logic
+      _lineChartData = [
+        FlSpot(0, 80),
+        FlSpot(1, 120),
+        FlSpot(2, 50),
+        FlSpot(3, 180),
+        FlSpot(4, 100),
+        FlSpot(5, 150),
+      ];
+    });
+  }
+}
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: HomeScreen(),
+      routes: {
+        '/transactions': (context) => Scaffold(body: Center(child: Text('Transactions Page'))),
+        '/report': (context) => Scaffold(body: Center(child: Text('Financial Report Page'))),
+        '/profile': (context) => Scaffold(body: Center(child: Text('Profile Page'))),
+      },
+    ),
+  );
 }

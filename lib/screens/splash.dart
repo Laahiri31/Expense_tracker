@@ -25,7 +25,7 @@ class _SplashState extends State<Splash> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "Welcome to",
+                "Your Persnolized",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
@@ -39,7 +39,7 @@ class _SplashState extends State<Splash> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "Medicore Pharmacies Network",
+                "Expenditure Tracking App",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
