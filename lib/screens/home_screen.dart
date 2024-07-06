@@ -119,15 +119,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         // Replace with actual labels as needed
                         switch (value.toInt()) {
                           case 0:
-                            return 'Week 1';
+                            return 'W 1';
                           case 1:
-                            return 'Week 2';
+                            return 'W 2';
                           case 2:
-                            return 'Week 3';
+                            return 'W 3';
                           case 3:
-                            return 'Week 4';
+                            return 'W 4';
                           case 4:
-                            return 'Week 5';
+                            return 'W 5';
                           default:
                             return '';
                         }
@@ -201,7 +201,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             IconButton(
               icon: Icon(Icons.payments_rounded),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/transactions');
+              },
             ),
             IconButton(
               icon: Icon(Icons.add_circle, size: 48.0), // Larger icon
@@ -212,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               icon: Icon(Icons.insert_chart),
               onPressed: () {
-                Navigator.pushNamed(context, '/report');
+                Navigator.pushNamed(context, '/stats');
               },
             ),
             IconButton(
@@ -300,6 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+
   void _updateLineChart() {
     // Replace with logic to update line chart based on _selectedMonthIndex
     // For example, fetch data for selected month and update _lineChartData
@@ -321,11 +324,6 @@ void main() {
   runApp(
     MaterialApp(
       home: HomeScreen(),
-      routes: {
-        '/transactions': (context) => Scaffold(body: Center(child: Text('Transactions Page'))),
-        '/report': (context) => Scaffold(body: Center(child: Text('Financial Report Page'))),
-        '/profile': (context) => Scaffold(body: Center(child: Text('Profile Page'))),
-      },
     ),
   );
 }

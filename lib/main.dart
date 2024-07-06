@@ -1,3 +1,4 @@
+import 'package:expense_tracker/screens/transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/screens/sign_up.dart';
 import 'package:expense_tracker/screens/splash.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/forgotpassword': (context) => const ForgotPassword(),
         '/navbar': (context) => NavBarRoots(),
         '/homescreen': (context) => HomeScreen(),
-        '/profile': (context) => UserProfile(),
+        '/transactions': (context) => TransactionsPage()
       },
       initialRoute: '/splash',
       theme: ThemeData(

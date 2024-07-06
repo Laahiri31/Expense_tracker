@@ -8,10 +8,36 @@ class NavBarRoots extends StatefulWidget {
 class _NavBarRoots extends State<NavBarRoots> {
   int _selectedIndex = 0;
   final _screens = [
-    Container(),
-    Container(),
-    Container()
+    Container(), // Home Screen
+    Container(), // Payments Screen
+    Container(), // Add Screen
+    Container(), // Stats Screen
+    Container(), // Profile Screen
   ];
+
+  void _onItemTapped(int index) {
+    // Add your custom functionality for each tab here
+    switch (index) {
+      case 0:
+        // Perform action for Home
+        break;
+      case 1:
+        // Perform action for Payments
+        break;
+      case 2:
+        // Perform action for Add
+        break;
+      case 3:
+        // Perform action for Stats
+        break;
+      case 4:
+        // Perform action for Profile
+        break;
+    }
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,31 +56,27 @@ class _NavBarRoots extends State<NavBarRoots> {
             fontSize: 15,
           ),
           currentIndex: _selectedIndex,
-          onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
+          onTap: _onItemTapped,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              label: "Home",
+              icon: Icon(Icons.home),
+              label: "home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.science_outlined),
-              label: "Tests",
+              icon: Icon(Icons.payments_rounded),
+              label: "payments",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_hospital_outlined),
-              label: "Care",
+              icon: Icon(Icons.add_circle, size: 48.0),
+              label: "add",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.percent_outlined),
-              label: "Offers",
+              icon: Icon(Icons.insert_chart),
+              label: "stats",
             ),
             BottomNavigationBarItem(
-              icon: Icon( Icons.account_circle),
-              label: "Account",
+              icon: Icon(Icons.person),
+              label: "profile",
             ),
           ],
         ),
