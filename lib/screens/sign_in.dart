@@ -18,7 +18,7 @@ class _SignUpState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:Color(0xFFF6F6E9),
       appBar: AppBar(
         title: const Center(
           child: Text(
@@ -27,7 +27,7 @@ class _SignUpState extends State<SignIn> {
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w600,
-                 color: Color.fromARGB(201, 0, 0, 0), // Set your desired text color
+                 color:Color.fromARGB(201, 0, 0, 0) , // Set your desired text color
                   fontFamily: 'Roboto', // Set your desired font family
                   letterSpacing: 1.2, // Adjust letter// Set underline thickness
                 ),
@@ -105,15 +105,16 @@ class _SignUpState extends State<SignIn> {
                 ),
               ),
             ),
+            
             const SizedBox(height: 20),
              AppbuttonWidget(
               onPressed: () {
                   Navigator.of(context).pushNamed('/homescreen');
                 },
               title: "Sign in",
-              titleColor: const Color(0xFF1C3146),
-              backgroundColor: const Color(0xFFFEC107),
-              borderColor: Colors.black,
+              titleColor: Color(0xFFF6F6E9),
+                backgroundColor: Color.fromARGB(255, 59, 59, 57),
+                borderColor: Colors.black,
             ),
             const SizedBox(
                 height:
@@ -132,7 +133,7 @@ class _SignUpState extends State<SignIn> {
                     TextSpan(
                       text: 'Sign up',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 233, 210, 0),
+                        color: Color.fromARGB(255, 59, 59, 57),
                       ),
                     ),
                   ],
