@@ -22,7 +22,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:Color(0xFFF6F6E9),
       appBar: AppBar(
         title: const Center(
           child: Text(
@@ -142,9 +142,9 @@ class _SignUpState extends State<SignUp> {
                   Navigator.of(context).pushNamed('/homescreen');
                 },
               title: "Sign Up",
-              titleColor: const Color(0xFF1C3146),
-              backgroundColor: const Color(0xFFFEC107),
-              borderColor: Colors.black,
+              titleColor: Color(0xFFF6F6E9),
+                backgroundColor: Color.fromARGB(255, 59, 59, 57),
+                borderColor: Colors.black,
             ),
             const SizedBox(height: 20),
             TextButton(
@@ -161,7 +161,7 @@ class _SignUpState extends State<SignUp> {
                     TextSpan(
                       text: 'Sign in',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 233, 210, 0),
+                        color: Color.fromARGB(255, 59, 59, 57),
                       ),
                     ),
                   ],

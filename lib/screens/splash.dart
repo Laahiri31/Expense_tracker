@@ -66,8 +66,8 @@ class _SplashState extends State<Splash> {
                   Navigator.of(context).pushNamed('/signin');
                 },
                 title: "Sign In",
-                titleColor: Color(0xFF1C3146),
-                backgroundColor: Color(0xFFFEC107),
+                titleColor: Color(0xFFF6F6E9),
+                backgroundColor: Color.fromARGB(255, 59, 59, 57),
                 borderColor: Colors.black,
               ),
             ),
@@ -80,8 +80,8 @@ class _SplashState extends State<Splash> {
                 },
                 title:
                     "Sign Up", // Changed the title to "Sign Up" for the second button
-                titleColor: Color(0xFF1C3146),
-                backgroundColor: Color(0xFFFEC107),
+                titleColor: Color(0xFFF6F6E9),
+                backgroundColor: Color.fromARGB(255, 59, 59, 57),
                 borderColor: Colors.black,
               ),
             ),
