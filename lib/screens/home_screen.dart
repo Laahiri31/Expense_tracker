@@ -197,7 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             IconButton(
               icon: Icon(Icons.home),
-              onPressed: () {},
+              onPressed: () {
+                 Navigator.of(context).pushNamed('/homescreen');
+              },
             ),
             IconButton(
               icon: Icon(Icons.payments_rounded),
@@ -322,7 +324,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 void main() {
   runApp(
-    MaterialApp(
+     MaterialApp(
       home: HomeScreen(),
     ),
   );
