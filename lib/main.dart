@@ -1,3 +1,4 @@
+import 'package:expense_tracker/screens/profile.dart';
 import 'package:expense_tracker/screens/transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/screens/sign_up.dart';
@@ -32,8 +33,9 @@ class MyApp extends StatelessWidget {
         '/transactions':(context) => TransactionsPage(),
         '/notifications':(context) => NotificationsPage(),
         '/stats':(context) => Stats(),
+        '/profile': (context) => UserProfile()
       },
-    initialRoute: '/splash',
+      initialRoute: '/splash',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -43,7 +45,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});final String title;
+  const MyHomePage({super.key, required this.title});
+  final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -83,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), 
+      ),
     );
   }
 }
