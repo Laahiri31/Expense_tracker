@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {
-              // Handle settings action
+              Navigator.of(context).pushNamed('/settings');
             },
           ),
           IconButton(
