@@ -9,7 +9,6 @@ import 'package:expense_tracker/screens/forgot_password.dart';
 import 'package:expense_tracker/widgets/nav_bar.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
 import 'package:expense_tracker/screens/notification.dart';
-import 'package:expense_tracker/screens/stats.dart';
 import 'package:expense_tracker/screens/settings.dart';
 
 
@@ -35,7 +34,6 @@ class MyApp extends StatelessWidget {
         '/homescreen' :(context) => HomeScreen(),
         '/transactions':(context) => TransactionsPage(),
         '/notifications':(context) => NotificationsPage(),
-        '/stats':(context) => Stats(),
         '/profile': (context) => UserProfile(),
         '/settings': (context) => SettingsPage(),
         '/stats': (context) => StatsPage()

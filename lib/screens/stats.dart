@@ -1,88 +1,79 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class StatsPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Pie Chart Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
+  _StatsPageState createState() => _StatsPageState();
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class _StatsPageState extends State<StatsPage> {
+  bool showPieChart = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pie Chart Example'),
+        title: Text('Transaction Statistics'),
       ),
-      body: Center(
-        child: PieChart(
-          PieChartData(
-            sections: [
-              PieChartSectionData(
-                color: Colors.red,
-                value: 40,
-                title: '40%',
-                radius: 50,
-                titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    showPieChart = true;
+                  });
+                },
+                child: Text('Show Pie Chart'),
               ),
-              PieChartSectionData(
-                color: Colors.blue,
-                value: 30,
-                title: '30%',
-                radius: 50,
-                titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
-              PieChartSectionData(
-                color: Colors.green,
-                value: 20,
-                title: '20%',
-                radius: 50,
-                titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
-              PieChartSectionData(
-                color: Colors.yellow,
-                value: 10,
-                title: '10%',
-                radius: 50,
-                titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    showPieChart = false;
+                  });
+                },
+                child: Text('Show Trends'),
               ),
             ],
           ),
-        ),
+          Expanded(
+            child: showPieChart ? PieChart() : LineChart(),
+          ),
+        ],
       ),
     );
   }
-
-  @override
-  void dispose() {
-    _expenseController.dispose();
-    _incomeController.dispose();
-    super.dispose();
-  }
 }
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: Stats(),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
+class PieChart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var data = [
+      Transaction('Received', 1000),
+      Transaction('Sent', 200),
+      Transaction('Failed', 500),
+    ];
+
+    var series = [
+      charts.Series(
+        id: 'Transactions',
+        domainFn: (Transaction transaction, _) => transaction.type,
+        measureFn: (Transaction transaction, _) => transaction.amount,
+        data: data,
+        labelAccessorFn: (Transaction row, _) => '${row.type}: \$${row.amount}',
+      )
+    ];
+
+    return charts.PieChart<String>(
+      series,
+      animate: true,
+      defaultRenderer: charts.ArcRendererConfig(
+        arcRendererDecorators: [charts.ArcLabelDecorator()],
+      ),
+    );
+  }
 }
 
 class LineChart extends StatelessWidget {
@@ -126,7 +117,6 @@ class TimeSeriesTransaction {
 
   TimeSeriesTransaction(this.time, this.amount);
 }
-
 void main() {
   runApp(
      MaterialApp(
