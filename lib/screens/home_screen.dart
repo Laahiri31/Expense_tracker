@@ -22,11 +22,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Color(0xFFF6F6E9),
       appBar: AppBar(
+      backgroundColor:Color.fromARGB(255, 235, 235, 213),
         title: Row(
           children: [
             Image.asset(
-              'images/money_logo.png',
+              'images/logof.png',
               height: 30, // Adjust height as needed
             ),
           ],
@@ -41,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: Icon(Icons.notifications),
             onPressed: () {
-              // Handle notifications action
+                  Navigator.of(context).pushNamed('/notifications');
             },
           ),
         ],
@@ -98,7 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
-                border: Border.all(color: Colors.grey[300]!),
+                border: Border.all(color: const Color.fromARGB(255, 108, 103, 103)),
+                
               ),
               child: LineChart(
                 LineChartData(
@@ -106,7 +109,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     LineChartBarData(
                       spots: _lineChartData,
                       isCurved: true,
-                      colors: [Theme.of(context).primaryColor],
+                      colors: [
+              Color.fromARGB(255, 151, 151, 146),],
                       barWidth: 4,
                       isStrokeCapRound: true,
                       belowBarData: BarAreaData(show: false),
@@ -154,24 +158,45 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 16.0),
             buildRecentTransactionItem(
-              "Groceries",
+              "Entertainment",
               Icons.shopping_cart,
-              "Buying weekly groceries",
-              "-\₹500",
+              "Internet Bill",
+              "-\₹1300",
               context,
             ),
             buildRecentTransactionItem(
-              "Salary",
+              "Receipt 101",
               Icons.attach_money,
-              "Monthly salary",
-              "+\₹200000",
+              "tenants rent",
+              "+\₹5000",
               context,
             ),
             buildRecentTransactionItem(
-              "Entetainment",
+              "Receipt 102",
+              Icons.attach_money,
+              "tenants rent",
+              "+\₹5000",
+              context,
+            ),
+            buildRecentTransactionItem(
+              "Communication",
+              Icons.attach_money,
+              "Idea Bill",
+              "-\₹350",
+              context,
+            ),
+            buildRecentTransactionItem(
+              "Petrol",
               Icons.subscriptions_rounded,
-              "Netflix Subscription",
-              "-\₹649",
+              "Car Fuel",
+              "-\₹1200",
+              context,
+            ),
+            buildRecentTransactionItem(
+              "Receipt 103",
+              Icons.attach_money,
+              "----",
+              "+\₹1000",
               context,
             ),
             // Add more recent transactions as needed
@@ -184,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 "See All",
                 style: TextStyle(
-                  color: Theme.of(context).primaryColor,
+      backgroundColor:Color(0xFFF6F6E9),
                   fontSize: 16.0,
                 ),
               ),

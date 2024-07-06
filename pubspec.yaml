@@ -68,7 +68,7 @@ flutter:
   assets:
   - images/google_logo.png
   - images/money_logo.png
-  - images/logo_1.png
+  - images/logof.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -94,4 +94,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/custom-fonts/#from-package
