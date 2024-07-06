@@ -1,4 +1,5 @@
 import 'package:expense_tracker/screens/profile.dart';
+import 'package:expense_tracker/screens/stats.dart';
 import 'package:expense_tracker/screens/transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/screens/sign_up.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         '/homescreen': (context) => HomeScreen(),
         '/transactions': (context) => TransactionsPage(),
         '/profile': (context) => UserProfile(),
-        '/settings': (context) => SettingsPage()
+        '/settings': (context) => SettingsPage(),
+        '/stats': (context) => StatsPage()
       },
       initialRoute: '/splash',
       theme: ThemeData(
