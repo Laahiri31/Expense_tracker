@@ -12,7 +12,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF6F6E9),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -53,9 +53,9 @@ class _SplashState extends State<Splash> {
             ),
             SizedBox(height: 20),
             Image.asset(
-              "images/money_logo.png",
-              width: 300, // Adjust the width as needed
-              height: 300,
+              "images/logo_1.png",
+              width: 400, // Adjust the width as needed
+              height: 400,
             ),
             const SizedBox(
                 height: 20), // Add some space between logo and buttons
