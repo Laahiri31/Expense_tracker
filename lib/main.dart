@@ -8,6 +8,8 @@ import 'package:expense_tracker/screens/sign_in.dart';
 import 'package:expense_tracker/screens/forgot_password.dart';
 import 'package:expense_tracker/widgets/nav_bar.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
+import 'package:expense_tracker/screens/notification.dart';
+import 'package:expense_tracker/screens/stats.dart';
 import 'package:expense_tracker/screens/settings.dart';
 
 
@@ -25,13 +27,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       routes: {
-        '/splash': (context) => const Splash(),
-        '/signup': (context) => const SignUp(),
-        '/signin': (context) => const SignIn(),
-        '/forgotpassword': (context) => const ForgotPassword(),
-        '/navbar': (context) => NavBarRoots(),
-        '/homescreen': (context) => HomeScreen(),
-        '/transactions': (context) => TransactionsPage(),
+        '/splash' :(context) => const Splash(),
+        '/signup' :(context) => const SignUp(),
+        '/signin' :(context) => const SignIn(),
+        '/forgotpassword' :(context) => const ForgotPassword(),
+        '/navbar' :(context) => NavBarRoots(),
+        '/homescreen' :(context) => HomeScreen(),
+        '/transactions':(context) => TransactionsPage(),
+        '/notifications':(context) => NotificationsPage(),
+        '/stats':(context) => Stats(),
         '/profile': (context) => UserProfile(),
         '/settings': (context) => SettingsPage(),
         '/stats': (context) => StatsPage()

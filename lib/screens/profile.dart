@@ -87,7 +87,7 @@ class UserProfile extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                // Add functionality for Logout
+                Navigator.of(context).pushNamed('/splash');
               },
               icon: Icon(Icons.logout),
               label: Text('Logout'),
