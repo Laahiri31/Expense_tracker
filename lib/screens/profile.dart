@@ -21,15 +21,29 @@ class UserProfile extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundImage: AssetImage('assets/profile_picture.png'), // Add your profile picture here
+                  backgroundImage: AssetImage(
+                      'assets/profile_picture.png'), // Add your profile picture here
                 ),
                 SizedBox(width: 20),
-                Text(
-                  'John Doe',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'John',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'john.doe@example.com',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -41,7 +55,8 @@ class UserProfile extends StatelessWidget {
               icon: Icon(Icons.credit_card),
               label: Text('Add Card or UPI'),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
+                minimumSize: Size(double.infinity, 60), // Increased height
+                textStyle: TextStyle(fontSize: 18), // Increased font size
               ),
             ),
             SizedBox(height: 20),
@@ -52,7 +67,8 @@ class UserProfile extends StatelessWidget {
               icon: Icon(Icons.settings),
               label: Text('Settings'),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
+                minimumSize: Size(double.infinity, 60), // Increased height
+                textStyle: TextStyle(fontSize: 18), // Increased font size
               ),
             ),
             SizedBox(height: 20),
@@ -63,7 +79,8 @@ class UserProfile extends StatelessWidget {
               icon: Icon(Icons.cloud_download),
               label: Text('Export Data'),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
+                minimumSize: Size(double.infinity, 60), // Increased height
+                textStyle: TextStyle(fontSize: 18), // Increased font size
               ),
             ),
             SizedBox(height: 20),
@@ -74,7 +91,8 @@ class UserProfile extends StatelessWidget {
               icon: Icon(Icons.logout),
               label: Text('Logout'),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
+                minimumSize: Size(double.infinity, 60), // Increased height
+                textStyle: TextStyle(fontSize: 18), // Increased font size
               ),
             ),
           ],

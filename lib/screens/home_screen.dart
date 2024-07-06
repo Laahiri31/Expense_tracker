@@ -59,7 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 12,
                 itemBuilder: (BuildContext context, int index) {
-                  String monthName = _getMonthName(index + 1); // Adjust index to match your month logic
+                  String monthName = _getMonthName(
+                      index + 1); // Adjust index to match your month logic
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -197,7 +198,9 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             IconButton(
               icon: Icon(Icons.home),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/homescreen');
+              },
             ),
             IconButton(
               icon: Icon(Icons.payments_rounded),
@@ -301,7 +304,6 @@ class _HomeScreenState extends State<HomeScreen> {
         return '';
     }
   }
-
 
   void _updateLineChart() {
     // Replace with logic to update line chart based on _selectedMonthIndex

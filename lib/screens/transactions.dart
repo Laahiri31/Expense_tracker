@@ -34,7 +34,7 @@ class TransactionsPage extends StatelessWidget {
               children: [
                 DropdownButton<String>(
                   hint: Text('Select Month'),
-                  items: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October','November', 'December'] // Replace with actual month data
+                  items: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] // Replace with actual month data
                       .map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -86,23 +86,43 @@ class TransactionsPage extends StatelessWidget {
         ),
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance_wallet),
-            label: 'Wallet',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pie_chart),
-            label: 'Reports',
-          ),
-        ],
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+      // Bottom App Bar
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {
+                 Navigator.of(context).pushNamed('/homescreen');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.payments_rounded),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/transactions');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.add_circle, size: 48.0), // Larger icon
+              onPressed: () {
+                // Handle add transaction action
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.insert_chart),
+              onPressed: () {
+                Navigator.pushNamed(context, '/stats');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

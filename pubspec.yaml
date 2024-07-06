@@ -30,9 +30,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  qr_flutter: ^4.0.0
   fl_chart: ^0.41.0
   flutter_lints: ^2.0.0
   bottom_nav_bar: ^1.0.3
+  
 
 
 
@@ -66,6 +68,7 @@ flutter:
   assets:
   - images/google_logo.png
   - images/money_logo.png
+  - images/logo_1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
