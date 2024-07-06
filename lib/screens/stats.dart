@@ -12,8 +12,16 @@ class _StatsPageState extends State<StatsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Color(0xFFF6F6E9),
       appBar: AppBar(
+      backgroundColor:Color.fromARGB(255, 235, 235, 213),
         title: Text('Transaction Statistics'),
+       leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Column(
         children: [
@@ -53,7 +61,7 @@ class PieChart extends StatelessWidget {
     var data = [
       Transaction('Received', 1000),
       Transaction('Sent', 200),
-      Transaction('Failed', 500),
+      Transaction('savings', 500),
     ];
 
     var series = [
@@ -62,7 +70,7 @@ class PieChart extends StatelessWidget {
         domainFn: (Transaction transaction, _) => transaction.type,
         measureFn: (Transaction transaction, _) => transaction.amount,
         data: data,
-        labelAccessorFn: (Transaction row, _) => '${row.type}: \$${row.amount}',
+        labelAccessorFn: (Transaction row, _) => '₹{row.type}: \$₹{row.amount}',
       )
     ];
 

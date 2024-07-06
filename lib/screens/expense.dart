@@ -40,24 +40,17 @@ class _ExpenseIncomeEntryScreenState extends State<ExpenseIncomeEntryScreen> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
+                  Navigator.of(context).pushNamed('/homescreen');
               },
               child: Text("Go to Home Screen"),
             ),
             TextButton(
               onPressed: () {
-                  Navigator.of(context).pushNamed('/homescreen');
-                setState(() {
-                  amountController.clear();
-                  descriptionController.clear();
-                  selectedCategory = 'Select Category';
-                  selectedWallet = 'Select Wallet';
-                  repeatTransaction = false;
-                });
+                  Navigator.of(context).pushNamed('/expense');
               },
               child: Text("Fill Another Form"),
             ),
+            
           ],
         );
       },
@@ -66,8 +59,10 @@ class _ExpenseIncomeEntryScreenState extends State<ExpenseIncomeEntryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
+      backgroundColor:Color(0xFFF6F6E9),
       appBar: AppBar(
+      backgroundColor:Color.fromARGB(255, 235, 235, 213),
         title: Text('Expense or Income'),
       ),
       body: Padding(

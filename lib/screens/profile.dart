@@ -23,7 +23,7 @@ class UserProfile extends StatelessWidget {
                 CircleAvatar(
                   radius: 40,
                   backgroundImage: AssetImage(
-                      'assets/money_logo.png'), // Add your profile picture here
+                      'assets/logo_1.png'), // Add your profile picture here
                 ),
                 SizedBox(width: 20),
                 Column(

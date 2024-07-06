@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
       title: 'Money Master App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: TransactionsPage(),
@@ -20,8 +21,10 @@ class TransactionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Color(0xFFF6F6E9),
       appBar: AppBar(
         title: Text('Transactions'),
+        backgroundColor:Color.fromARGB(255, 235, 235, 213),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -61,7 +64,7 @@ class TransactionsPage extends StatelessWidget {
                   Navigator.of(context).pushNamed('/cashbook');
             },
               style: ElevatedButton.styleFrom(
-                primary: Colors.deepPurple,
+                primary: const Color.fromARGB(255, 130, 92, 197),
                 padding: EdgeInsets.symmetric(vertical: 12.0),
               ),
               child: Center(
