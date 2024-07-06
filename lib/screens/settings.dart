@@ -46,3 +46,11 @@ class SettingsPage extends StatelessWidget {
     );
   }
 }
+void main() {
+  runApp(
+     MaterialApp(
+      home: SettingsPage(),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
+}
