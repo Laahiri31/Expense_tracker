@@ -4,6 +4,7 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF6F6E9),
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
