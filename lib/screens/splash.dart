@@ -22,40 +22,11 @@ class _SplashState extends State<Splash> {
             const SizedBox(
               height: 30,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "Your Persnolized",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                  color: Color.fromARGB(201, 0, 0, 0), // Set your desired text color
-                  fontFamily: 'Roboto', // Set your desired font family
-                  letterSpacing: 1.2, // Adjust letter// Set underline thickness
-                ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "Expenditure Tracking App",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                 color: Color.fromARGB(201, 0, 0, 0), // Set your desired text color
-                  fontFamily: 'Roboto', // Set your desired font family
-                  letterSpacing: 1.2, // Adjust letter// Set underline thickness
-                ),
-              ),
-              
-            ),
             SizedBox(height: 20),
             Image.asset(
               "images/logof.png",
-              width: 300, // Adjust the width as needed
-              height: 300,
+              width: 400, // Adjust the width as needed
+              height: 400,
             ),
             const SizedBox(
                 height: 20), // Add some space between logo and buttons

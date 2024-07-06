@@ -11,6 +11,7 @@ import 'package:expense_tracker/screens/home_screen.dart';
 import 'package:expense_tracker/screens/notification.dart';
 import 'package:expense_tracker/screens/settings.dart';
 import 'package:expense_tracker/screens/view_report.dart';
+import 'package:expense_tracker/screens/expense.dart';
 
 
 //Test
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => SettingsPage(),
         '/stats': (context) => StatsPage(),
         '/cashbook':(context) => PettyCashBook(),
+        '/expense' :(context) => ExpenseIncomeEntryScreen()
       },
       initialRoute: '/splash',
       theme: ThemeData(
