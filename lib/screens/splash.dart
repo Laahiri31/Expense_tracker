@@ -53,9 +53,9 @@ class _SplashState extends State<Splash> {
             ),
             SizedBox(height: 20),
             Image.asset(
-              "images/logo_1.png",
-              width: 400, // Adjust the width as needed
-              height: 400,
+              "images/logof.png",
+              width: 300, // Adjust the width as needed
+              height: 300,
             ),
             const SizedBox(
                 height: 20), // Add some space between logo and buttons
