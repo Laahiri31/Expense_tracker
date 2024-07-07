@@ -19,27 +19,7 @@ class _SignUpState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:Color(0xFFF6F6E9),
-      appBar: AppBar(
-        title: const Center(
-          child: Text(
-            "Sign In",
-        textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                 color:Color.fromARGB(201, 0, 0, 0) , // Set your desired text color
-                  fontFamily: 'Roboto', // Set your desired font family
-                  letterSpacing: 1.2, // Adjust letter// Set underline thickness
-                ),
-          ), // Centered app title
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-         onPressed: () {
-                  Navigator.of(context).pushNamed('/splash');
-                },
-        ),
-      ),
+      
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -48,26 +28,7 @@ class _SignUpState extends State<SignIn> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GoogleSignUpButton(
-              onPressed: () {
-                print('Google sign-in pressed');
-              },
-            ),
-            const SizedBox(
-                height: 20), // Add space between the Google button and the text
-
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "--------------------------------------Sign in with Email--------------------------------------",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w100),
-              ),
-            ),
-
-            const SizedBox(
-                height:
-                    20), // Add space between the text and the first text field
+             // Add space between the text and the first text field
             AppInputTextFieldWidget(
               controller: _namecontroller,
               hintText: 'User Name',
@@ -90,7 +51,7 @@ class _SignUpState extends State<SignIn> {
               prefixIcon: Icons.lock,
                // Set border color here
             ),
-             const SizedBox(height: 8), // Add a small gap between the password field and the Forget Password? button
+            const SizedBox(height: 8), // Add a small gap between the password field and the Forget Password? button
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
@@ -105,7 +66,30 @@ class _SignUpState extends State<SignIn> {
                 ),
               ),
             ),
+            const SizedBox(
+                height: 15), // Add space between the Google button and the text
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                "------------------------------------Sign in with Google------------------------------------",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w100),
+              ),
+            ),
+            const SizedBox(
+                height:
+                    20),
+            GoogleSignUpButton(
+              onPressed: () {
+                print('Google sign-in pressed');
+              },
+            ),
             
+            const SizedBox(
+                height:
+                    20),
+             
             const SizedBox(height: 20),
              AppbuttonWidget(
               onPressed: () {

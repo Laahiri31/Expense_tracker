@@ -23,28 +23,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:Color(0xFFF6F6E9),
-      appBar: AppBar(
-        title: const Center(
-          child: Text(
-            "Sign Up",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w600,
-              color:
-                  Color.fromARGB(201, 0, 0, 0), // Set your desired text color
-              fontFamily: 'Roboto', // Set your desired font family
-              letterSpacing: 1.2, // Adjust letter// Set underline thickness
-            ),
-          ), // Centered app title
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pushNamed('/splash');
-          },
-        ),
-      ),
+      
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -53,21 +32,6 @@ class _SignUpState extends State<SignUp> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GoogleSignUpButton(
-              onPressed: () {
-                print('Google sign-up pressed');
-              },
-            ),
-            const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "--------------------------------------Sign up with Email--------------------------------------",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w100),
-              ),
-            ),
-            const SizedBox(height: 20),
             AppInputTextFieldWidget(
               controller: _namecontroller,
               hintText: 'User Name',
@@ -116,7 +80,7 @@ class _SignUpState extends State<SignUp> {
               'Gender',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
             DropdownButton<String>(
               value: _selectedGender,
               icon: const Icon(Icons.arrow_downward),
@@ -135,6 +99,21 @@ class _SignUpState extends State<SignUp> {
                   child: Text(value),
                 );
               }).toList(),
+            ),
+            const SizedBox(height: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                "------------------------------------Sign up with Google------------------------------------",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w100),
+              ),
+            ),
+            const SizedBox(height: 20),
+            GoogleSignUpButton(
+              onPressed: () {
+                print('Google sign-up pressed');
+              },
             ),
             const SizedBox(height: 20),
             AppbuttonWidget(

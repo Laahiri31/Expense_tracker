@@ -83,9 +83,9 @@ class TransactionsPage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  ExpenditureCard(day: 'Today', amount: '\$50.00', icon: Icons.today),
-                  ExpenditureCard(day: 'Yesterday', amount: '\$45.00', icon: Icons.calendar_today),
-                  ExpenditureCard(day: 'Last Week', amount: '\$200.00', icon: Icons.event_note),
+                  ExpenditureCard(day: 'Today', amount: '5000', icon: Icons.today),
+                  ExpenditureCard(day: 'Yesterday', amount: '4500', icon: Icons.calendar_today),
+                  ExpenditureCard(day: 'Last Week', amount: '20000', icon: Icons.event_note),
                   // Add more cards as needed
                 ],
               ),
